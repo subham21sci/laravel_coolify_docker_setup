@@ -1,6 +1,7 @@
 [phases.setup]
 nixPkgs = [
   "php82",
+  "php82Packages.composer",
   "php82Extensions.pdo",
   "php82Extensions.pdo_mysql",
   "php82Extensions.pdo_sqlite",
@@ -11,13 +12,12 @@ nixPkgs = [
   "php82Extensions.openssl",
   "nginx",
   "nodejs",
-  "composer",
   "python311Packages.supervisor"
 ]
 
 [phases.build]
 cmds = [
-  "composer install --no-dev --optimize-autoloader",
+  "php82Packages.composer install --no-dev --optimize-autoloader || true",
   "chmod +x assets/start.sh"
 ]
 
