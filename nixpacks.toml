@@ -9,15 +9,12 @@ nixPkgs = [
   "php82Extensions.bcmath",
   "php82Extensions.tokenizer",
   "php82Extensions.fileinfo",
-  "php82Extensions.openssl",
-  "nginx",
-  "nodejs",
-  "python311Packages.supervisor"
+  "php82Extensions.openssl"
 ]
 
 [phases.build]
 cmds = [
-  "php82Packages.composer install --no-dev --optimize-autoloader || true",
+  "composer install --no-dev --optimize-autoloader",
   "chmod +x assets/start.sh"
 ]
 
