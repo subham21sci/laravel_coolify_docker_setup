@@ -2,6 +2,7 @@
 nixPkgs = [
   "php82",
   "php82Packages.composer",
+  "nodejs",
   "php82Extensions.pdo",
   "php82Extensions.pdo_sqlite",
   "php82Extensions.mbstring",
