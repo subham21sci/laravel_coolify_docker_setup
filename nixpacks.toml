@@ -3,6 +3,7 @@ nixPkgs = [
   "php82",
   "php82Extensions.pdo",
   "php82Extensions.pdo_mysql",
+  "php82Extensions.pdo_sqlite",
   "php82Extensions.mbstring",
   "php82Extensions.bcmath",
   "php82Extensions.tokenizer",
@@ -10,6 +11,7 @@ nixPkgs = [
   "php82Extensions.openssl",
   "nginx",
   "nodejs",
+  "composer",
   "python311Packages.supervisor"
 ]
 
