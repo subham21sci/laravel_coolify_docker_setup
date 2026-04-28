@@ -3,7 +3,6 @@ nixPkgs = [
   "php82",
   "php82Packages.composer",
   "php82Extensions.pdo",
-  "php82Extensions.pdo_mysql",
   "php82Extensions.pdo_sqlite",
   "php82Extensions.mbstring",
   "php82Extensions.bcmath",
@@ -14,9 +13,13 @@ nixPkgs = [
 
 [phases.build]
 cmds = [
+  "export APP_ENV=local",
   "composer install --no-dev --optimize-autoloader",
-  "chmod +x assets/start.sh"
+  "php artisan key:generate || true",
+  "php artisan config:clear || true",
+  "php artisan route:clear || true",
+  "php artisan view:clear || true"
 ]
 
 [start]
-cmd = "bash assets/start.sh"
+cmd = "php -S 0.0.0.0:$PORT -t public"
